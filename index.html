@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sda-timer</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="clock"></div>
+<button type="button" id="start-pause" onclick="onClickStartPause()">Start</button>
+<script>
+    let seconds = 59;
+    let isPaused = true;
+    let intervalId;
+
+    $('#clock').html(seconds);
+
+    function onClickStartPause() {
+        if (isPaused) {
+            intervalId = setInterval(decrease, 1000);
+            $('#start-pause').html('Pause');
+        } else{
+            clearInterval(intervalId);
+            $('#start-pause').html('Start');
+        }
+        isPaused = !isPaused;
+    }
+
+    function decrease() {
+        seconds--;
+        $('#clock').html(seconds);
+    }
+</script>
+</body>
+</html>
