@@ -41,6 +41,8 @@
             isPaused = true;
             clearInterval(intervalId);
             $('#start-pause').html('Start');
+            let audio = new Audio('sounds/TF011.WAV');
+            audio.play();
         }
     }
 </script>
