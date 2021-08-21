@@ -8,8 +8,10 @@
 <body>
 <div id="clock"></div>
 <button type="button" id="start-pause" onclick="onClickStartPause()">Start</button>
+<button type="button" id="reset" onclick="resetClock()">Reset</button>
 <script>
-    let seconds = 59;
+    const defaultSeconds = 3;
+    let seconds = defaultSeconds;
     let isPaused = true;
     let intervalId;
 
@@ -24,6 +26,11 @@
             $('#start-pause').html('Start');
         }
         isPaused = !isPaused;
+    }
+
+    function resetClock(){
+        seconds = defaultSeconds;
+        $('#clock').html(seconds);
     }
 
     function decrease() {
